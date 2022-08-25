@@ -1,0 +1,24 @@
+steps:
+  - name: docker/compose:1.29.0
+    args:
+      - -f
+      - 34-01-deploy-with-docker/backend/docker-compose.prod.yaml
+      - build
+
+  - name: docker/compose:1.29.0
+    args:
+      - -f
+      - 34-01-deploy-with-docker/backend/docker-compose.prod.yaml
+      - push
+
+  - name: 'gcr.io/cloud-builders/kubectl'
+    args:
+      [
+        'set',
+        'image',
+        'deployment/nginx-1',
+        'my-backend-sha256-1=asia.gcr.io/disco-catcher-359906/my_backend:6.0',
+      ]
+    env:
+      - CLOUDSDK_COMPUTE_ZONE=asia-northeast3
+      - CLOUDSDK_CONTAINER_CLUSTER=autopilot-cluster-1
