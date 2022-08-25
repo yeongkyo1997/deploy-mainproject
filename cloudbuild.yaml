@@ -17,7 +17,7 @@ steps:
         'set',
         'image',
         'deployment/nginx-1',
-        'my-backend-sha256-1=asia.gcr.io/disco-catcher-359906/my_backend:6.0',
+        'my-backend-sha256-1=asia.gcr.io/disco-catcher-359906/my_backend:2.221',
       ]
     env:
       - CLOUDSDK_COMPUTE_ZONE=asia-northeast3
