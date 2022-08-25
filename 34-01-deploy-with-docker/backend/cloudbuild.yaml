@@ -2,13 +2,13 @@ steps:
   - name: docker/compose:1.29.0
     args:
       - -f
-      - backend/docker-compose.prod.yaml
+      - 34-01-deploy-with-docker/backend/docker-compose.prod.yaml
       - build
 
   - name: docker/compose:1.29.0
     args:
       - -f
-      - backend/docker-compose.prod.yaml
+      - 34-01-deploy-with-docker/backend/docker-compose.prod.yaml
       - push
 
   - name: 'gcr.io/cloud-builders/kubectl'
@@ -16,8 +16,8 @@ steps:
       [
         'set',
         'image',
-        'deployment/codecamp-backend-api-resource',
-        'my-backend-sha256-1=asia.gcr.io/backend01-342301/my_backend:6.0',
+        'deployment/nginx-1',
+        'my-backend-sha256-1=asia.gcr.io/disco-catcher-359906/my_backend:2.0',
       ]
     env:
       - CLOUDSDK_COMPUTE_ZONE=asia-northeast3
