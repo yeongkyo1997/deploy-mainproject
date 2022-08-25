@@ -11,6 +11,7 @@ import { AuthsModule } from './apis/auths/auths.module';
 import { PointsTransactionsModule } from './apis/pointsTransactions/pointsTransactions.module';
 import { ProductTag } from './apis/productsTags/entities/productTag.entity';
 import { FilesModule } from './apis/files/files.module';
+import { AppController } from './app.controller';
 
 @Module({
   imports: [
@@ -44,5 +45,6 @@ import { FilesModule } from './apis/files/files.module';
       retryAttempts: 30, // 서버연결시도 횟수
     }),
   ],
+  controllers: [AppController],
 })
 export class AppModule {}

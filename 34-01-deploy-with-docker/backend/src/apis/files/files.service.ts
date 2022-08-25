@@ -12,11 +12,11 @@ export class FilesService {
     const waitedFiles = await Promise.all(files);
     console.log(waitedFiles); // [file, file]
 
-    const bucket = 'inyeongkyo';
+    const bucket = 'my-backend-bucket1';
     const storage = new Storage({
-      projectId: 'tidy-nomad-358901',
-      keyFilename: 'gcp-file-storage.json',
-    }).bucket('inyeongkyo');
+      projectId: 'disco-catcher-359906',
+      keyFilename: '/my-secret/gcp-file-storage.json',
+    }).bucket('my-backend-bucket1');
 
     const results = await Promise.all(
       waitedFiles.map(
