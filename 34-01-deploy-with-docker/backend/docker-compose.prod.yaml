@@ -2,7 +2,7 @@ version: '3.7'
 
 services:
   my_backend:
-    image: asia.gcr.io/disco-catcher-359906/my-backend:2.2
+    image: asia.gcr.io/disco-catcher-359906/my-backend:2.21
     platform: linux/x86_64
     build:
       context: .
